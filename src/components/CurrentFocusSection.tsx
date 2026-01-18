@@ -19,26 +19,22 @@ const CurrentFocusSection = () => {
           <div className="bg-card rounded-3xl p-8 md:p-12 shadow-elevated border border-border/50 animate-fade-up delay-200">
             <div className="flex items-center gap-3 text-muted-foreground text-sm mb-6">
               <Calendar className="w-4 h-4" />
-              <span>Academic Year 2023-2024</span>
+              <span>Academic Year 2025-2026</span>
             </div>
             
             <div className="space-y-6 text-muted-foreground">
               <p className="text-lg leading-relaxed">
-                Currently, I'm deeply immersed in my studies, focusing on advanced 
-                coursework in biology and chemistry. I'm particularly excited about 
-                an upcoming science fair project exploring sustainable bio-materials.
+                Currently, I am focused on my core subjects, developing a strong academic foundation while balancing my studies with regular training and participation in badminton tournaments. Alongside this, I actively contribute to school life by helping out in various activities and responsibilities.
               </p>
               <p className="text-lg leading-relaxed">
-                Outside the classroom, I'm actively participating in our school's 
-                science club and preparing for regional academic competitions. I'm 
-                also volunteering with environmental initiatives in my community.
+                Over the course of this year, I will be undertaking a personal project and gaining work experience related to biotechnology, allowing me to explore the field beyond the classroom. These experiences are helping me build practical skills, discipline, and a deeper understanding of how science is applied in real-world contexts.
               </p>
             </div>
 
             <div className="mt-8 pt-8 border-t border-border flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between">
               <div className="flex flex-wrap gap-2">
                 <span className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">
-                  Science Fair
+                  Science
                 </span>
                 <span className="px-3 py-1 bg-accent/10 text-accent text-sm rounded-full">
                   Competitions

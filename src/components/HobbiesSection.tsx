@@ -1,4 +1,4 @@
-import { Trophy, Atom, Users } from "lucide-react";
+import { Trophy, Atom, Music } from "lucide-react";
 
 const hobbies = [
   {
@@ -16,9 +16,9 @@ const hobbies = [
     bgColor: "bg-accent/10",
   },
   {
-    icon: Users,
-    title: "Leadership",
-    description: "Inspiring and guiding teams towards success",
+    icon: Music,
+    title: "Piano",
+    description: "Expressing creativity through music and melody",
     color: "text-primary",
     bgColor: "bg-primary/10",
   },

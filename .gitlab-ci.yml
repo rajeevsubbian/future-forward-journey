@@ -1,0 +1,131 @@
+# --------------------------------------------
+# GitLab CI/CD pipeline for a simple web app
+# Tech stack:
+# - Vite
+# - React
+# - TypeScript
+# - Tailwind / shadcn-ui
+#
+# Goal:
+# 1. Build the app
+# 2. Deploy it to Netlify
+# --------------------------------------------
+
+# Use Node.js because this is a JavaScript project
+image: node:22-alpine
+
+# Define the stages of the pipeline
+# Stages run from top to bottom
+stages:
+  - build
+  - package
+  - deployaws
+  
+  - deploy
+
+variables:
+  VITE_APP_VERSION: $CI_COMMIT_SHORT_SHA
+
+# --------------------------------------------
+# BUILD STAGE
+# --------------------------------------------
+build_app:
+  stage: build
+  when: manual
+
+  script:
+    # Print versions (helps debugging and learning)
+    - echo "Node version:"
+    - node --version
+    - echo "NPM version:"
+    - npm --version
+
+    # Install project dependencies exactly as defined
+    # npm ci is faster and safer than npm install
+    - echo "Installing dependencies..."
+    - npm ci
+
+    # Build the project using Vite
+    - echo "Building the app..."
+    - npm run build
+
+    # Show what files were generated
+    - echo "Build output:"
+    - ls -la dist
+
+  # Save the build output so the next stage can use it
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 1 hour
+
+
+# --------------------------------------------
+# DOCKER Image creation
+# --------------------------------------------
+
+build_docker_image:
+  image: 
+    name: amazon/aws-cli:2.23.0
+    entrypoint: [""]
+  stage: package
+  when: manual
+  services:
+    - docker:27-dind
+  variables:
+    DOCKER_HOST: tcp://docker:2375/
+  before_script:
+    - amazon-linux-extras install docker
+  script:
+    - aws --version
+    - docker version
+    #- docker build -t futureforwardjourney .
+    - docker build -t $DOCKER_REGISTRY/futureforwardjourney:$VITE_APP_VERSION -t $DOCKER_REGISTRY/futureforwardjourney .
+    - aws ecr get-login-password | docker login --username AWS --password-stdin $DOCKER_REGISTRY
+    #- docker push $DOCKER_REGISTRY/futureforwardjourney:$VITE_APP_VERSION
+    - docker push --all-tags $DOCKER_REGISTRY/futureforwardjourney
+
+# --------------------------------------------
+# DEPLOY AWS STAGE
+# --------------------------------------------
+ecs_deploy:
+  stage: deployaws
+  when: manual
+  image:
+    name: amazon/aws-cli:2.23.0
+    entrypoint: [""]
+  script:
+    - aws --version
+    - aws ecs register-task-definition --cli-input-json file://aws/td-prod.json
+    - aws ecs update-service --cluster test-for-ram-ecs --service future-forward-journey-TD-Prod-service-uhmr2gbu --task-definition future-forward-journey-TD-Prod
+    - aws ecs wait services-stable --cluster test-for-ram-ecs --services future-forward-journey-TD-Prod-service-uhmr2gbu
+
+
+# --------------------------------------------
+# DEPLOY STAGE
+# --------------------------------------------
+deploy_to_netlify:
+  stage: deploy
+  when: manual
+
+  # This job needs the build files from the build stage
+  needs:
+    - build_app
+
+  script:
+    # Install Netlify CLI (tool that talks to Netlify)
+    - echo "Installing Netlify CLI..."
+    - npm install -g netlify-cli
+
+    # Check Netlify CLI version
+    - netlify --version
+
+    # Deploy the site
+    # --dir dist     -> folder created by Vite build
+    # --prod         -> deploy to production
+    - echo "Deploying to Netlify..."
+    - netlify deploy --prod --dir=dist --no-build
+
+  environment:
+    name: production
+    url: https://rajeevsubbian-gitlab-ram-01.netlify.app/

@@ -1,0 +1,27 @@
+{
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "family": "future-forward-journey-TD-Prod",
+    "containerDefinitions": [
+        {
+            "name": "future-forward-journey",
+            "image": "122610476215.dkr.ecr.eu-west-2.amazonaws.com/futureforwardjourney",
+            "portMappings": [
+                {
+                    "appProtocol": "http",
+                    "containerPort": 80,
+                    "hostPort": 80,
+                    "name": "nginx-80-tcp",
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true
+        }
+    ],
+    "volumes": [],
+    "networkMode": "awsvpc",
+    "memory": "512",
+    "cpu": "256",
+    "executionRoleArn": "arn:aws:iam::122610476215:role/ecsTaskExecutionRole"
+}

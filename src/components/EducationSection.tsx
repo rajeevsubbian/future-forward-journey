@@ -4,7 +4,7 @@ const subjects = [
   { name: "Mathematics", icon: "📐" },
   { name: "Biology", icon: "🧬" },
   { name: "Chemistry", icon: "⚗️" },
-  { name: "Physics", icon: "⚛️" },
+  { name: "EPQ", icon: "📝" },
 ];
 
 const EducationSection = () => {
@@ -30,10 +30,10 @@ const EducationSection = () => {
               Current School
             </h3>
             <p className="text-muted-foreground mb-4">
-              Your School Name
+              The Skinners' School
             </p>
             <p className="text-sm text-muted-foreground">
-              Grade/Year • 2023-2024
+              Year 12 • 2020-2027
             </p>
           </div>
 
@@ -48,7 +48,7 @@ const EducationSection = () => {
               </h3>
             </div>
             
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               {subjects.map((subject) => (
                 <div
                   key={subject.name}
