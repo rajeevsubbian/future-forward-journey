@@ -26,7 +26,7 @@ const hobbies = [
 
 const HobbiesSection = () => {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24 bg-background bg-texture">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-up">
           <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-4">

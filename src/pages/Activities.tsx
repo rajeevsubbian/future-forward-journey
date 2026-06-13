@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Calendar, Music, GraduationCap, Mountain, Store, Code, Trophy, Stethoscope, Droplets, Lightbulb } from "lucide-react";
+import { Calendar, Music, GraduationCap, Mountain, Store, Code, Trophy, Stethoscope, Droplets, Lightbulb, Mic, FlaskConical } from "lucide-react";
 
 const experiences = [
   {
@@ -35,7 +35,7 @@ const experiences = [
     title: "GCSE Examinations",
     date: "05–06/2025",
     sortDate: new Date(2025, 5),
-    description: "I completed my GCSE examinations across a broad range of subjects, consolidating foundational knowledge and exam technique. The revision process improved my ability to plan long-term study, prioritise weaker areas, and perform under pressure. Key highlights being: 9s in Maths, Physics, Chemistry, Biology and an A in FSMQ (Add maths), as well as 8s in Computer Science and English Literature. This experience helped shape my academic interests and prepared me for the demands of A-level study.",
+    description: "I completed my GCSE examinations across a broad range of subjects, consolidating foundational knowledge and exam technique. The revision process improved my ability to plan long-term study, prioritise weaker areas, and perform under pressure. Key highlights being: 9s in Maths, Physics, Chemistry, Biology and an A in FSMQ (Add maths), as well as 8s in Computer Science and French. This experience helped shape my academic interests and prepared me for the demands of A-level study.",
     icon: GraduationCap,
     tags: ["Academic Achievement", "Resilience", "Independent Learning"],
   },
@@ -93,6 +93,24 @@ const experiences = [
     icon: Trophy,
     tags: ["Consistency", "Strategy", "Team Performance"],
   },
+  {
+      id: 11,
+    title: "Gave a talk to 300+ people",
+    date: "02/2026",
+    sortDate: new Date(2026, 1),
+    description: "I delivered a presentation to over 300 students, sharing my experience of building a personal project and emphasising the importance of applying learning to create something tangible. Preparing and presenting to a large audience strengthened my public speaking, clarity of communication, and ability to explain complex ideas in an engaging and accessible way.",
+    icon: Mic,
+    tags: ["Public Speaking", "Communication", "Leadership"],
+  },
+  {
+    id: 12,
+    title: "Oxford Chemistry Lab Trip (Esterification)",
+    date: "03/2026",
+    sortDate: new Date(2026, 2),
+    description: "I attended an Oxford Chemistry lab trip where I carried out the esterification of carboxylic acids to form esters. I practiced accurate measuring, safe handling of chemicals, and careful observation of reaction steps, while linking the practical work to organic chemistry concepts and experimental technique.",
+    icon: FlaskConical,
+    tags: ["Organic Chemistry", "Lab Skills", "Practical Science"],
+  },
 ].sort((a, b) => a.sortDate.getTime() - b.sortDate.getTime());
 
 const tagColors: Record<string, string> = {
@@ -110,6 +128,9 @@ const tagColors: Record<string, string> = {
   "Python": "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-300",
   "Problem Solving": "bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300",
   "Computational Thinking": "bg-teal-100 text-teal-700 dark:bg-teal-900/30 dark:text-teal-300",
+  "Organic Chemistry": "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300",
+  "Lab Skills": "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300",
+  "Practical Science": "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300",
   "Environmental Science": "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300",
   "Engineering": "bg-gray-100 text-gray-700 dark:bg-gray-900/30 dark:text-gray-300",
   "Sustainability": "bg-lime-100 text-lime-700 dark:bg-lime-900/30 dark:text-lime-300",
@@ -125,7 +146,7 @@ const tagColors: Record<string, string> = {
   "Customer Service": "bg-pink-100 text-pink-700 dark:bg-pink-900/30 dark:text-pink-300",
   "Communication": "bg-violet-100 text-violet-700 dark:bg-violet-900/30 dark:text-violet-300",
   "Responsibility": "bg-fuchsia-100 text-fuchsia-700 dark:bg-fuchsia-900/30 dark:text-fuchsia-300",
-  
+  "Public Speaking": "bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300",
   // Sports & Competition
   "Competitive Sport": "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300",
   
@@ -147,17 +168,16 @@ const Activities = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-
+      
       {/* Hero Banner */}
       <section className="pt-24 pb-16 bg-hero">
         <div className="container mx-auto px-6 pt-12">
           <div className="text-center animate-fade-up">
-            <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-zinc-50 mb-4">
               Activities & Experiences
             </h1>
-            <p className="text-lg text-primary-foreground/80 max-w-2xl mx-auto">
-              A collection of events, achievements, and experiences that have
-              shaped my journey
+            <p className="text-lg text-zinc-100/80 max-w-2xl mx-auto">
+              A collection of events, achievements, and experiences that have shaped my journey
             </p>
           </div>
         </div>
@@ -187,11 +207,11 @@ const Activities = () => {
                       <Calendar className="w-4 h-4" />
                       <span>{experience.date}</span>
                     </div>
-
+                    
                     <h3 className="text-xl font-semibold text-foreground mb-3">
                       {experience.title}
                     </h3>
-
+                    
                     <p className="text-muted-foreground leading-relaxed mb-4">
                       {experience.description}
                     </p>

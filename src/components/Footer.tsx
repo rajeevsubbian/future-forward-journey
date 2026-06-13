@@ -8,7 +8,7 @@ const Footer = () => {
           <div className="text-center md:text-left">
             <p className="text-foreground font-semibold mb-1">Ramsundar Rajeev</p>
             <p className="text-sm text-muted-foreground">
-              Curious Student & Future Biotechnologist
+              Curious Student & Future Doctor
             </p>
           </div>
 

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const CurrentFocusSection = () => {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24 bg-background bg-texture">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12 animate-fade-up">
@@ -27,7 +27,7 @@ const CurrentFocusSection = () => {
                 Currently, I am focused on my core subjects, developing a strong academic foundation while balancing my studies with regular training and participation in badminton tournaments. Alongside this, I actively contribute to school life by helping out in various activities and responsibilities.
               </p>
               <p className="text-lg leading-relaxed">
-                Over the course of this year, I will be undertaking a personal project and gaining work experience related to biotechnology, allowing me to explore the field beyond the classroom. These experiences are helping me build practical skills, discipline, and a deeper understanding of how science is applied in real-world contexts.
+                Over the course of this year, I will be undertaking a personal project and gaining work experience related to medicine and healthcare, allowing me to explore the field beyond the classroom. These experiences are helping me build practical skills, discipline, and a deeper understanding of how science is applied in real-world contexts.
               </p>
             </div>
 

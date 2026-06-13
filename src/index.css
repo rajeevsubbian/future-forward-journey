@@ -1,45 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap');
-
 @layer base {
   :root {
-    --background: 210 20% 98%;
-    --foreground: 215 25% 15%;
+    /* Light theme (cool clinical blues) */
+    --background: 215 35% 97%;
+    --foreground: 215 35% 14%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 215 25% 15%;
+    --card: 215 40% 99%;
+    --card-foreground: 215 35% 14%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 15%;
+    --popover: 215 40% 99%;
+    --popover-foreground: 215 35% 14%;
 
-    --primary: 195 85% 40%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 210 90% 40%;
+    --primary-foreground: 215 40% 99%;
 
-    --secondary: 215 30% 94%;
-    --secondary-foreground: 215 25% 25%;
+    --secondary: 215 30% 93%;
+    --secondary-foreground: 215 30% 20%;
 
-    --muted: 210 20% 96%;
-    --muted-foreground: 215 15% 50%;
+    --muted: 215 25% 95%;
+    --muted-foreground: 215 18% 45%;
 
-    --accent: 170 70% 45%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 185 85% 38%;
+    --accent-foreground: 215 40% 99%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214 20% 90%;
-    --input: 214 20% 90%;
-    --ring: 195 85% 40%;
+    --border: 215 22% 88%;
+    --input: 215 22% 88%;
+    --ring: 210 90% 40%;
 
     --radius: 0.75rem;
 
     /* Custom tokens */
-    --gradient-hero: linear-gradient(135deg, hsl(215 35% 18%) 0%, hsl(200 40% 25%) 50%, hsl(180 50% 30%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 20% 98%) 100%);
-    --gradient-accent: linear-gradient(90deg, hsl(195 85% 40%) 0%, hsl(170 70% 45%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(217 55% 18%) 0%, hsl(206 60% 20%) 50%, hsl(191 65% 22%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(215 40% 99%) 0%, hsl(215 35% 97%) 100%);
+    --gradient-accent: linear-gradient(90deg, hsl(210 90% 40%) 0%, hsl(185 85% 38%) 100%);
+
+    /* Abstract medical texture (subtle, no images) */
+    --texture-soft: radial-gradient(900px 600px at 20% 10%, hsl(210 95% 55% / 0.10), transparent 55%),
+      radial-gradient(800px 500px at 85% 25%, hsl(185 95% 45% / 0.10), transparent 55%),
+      radial-gradient(700px 450px at 60% 90%, hsl(230 90% 60% / 0.06), transparent 60%),
+      repeating-linear-gradient(90deg, hsl(215 30% 50% / 0.04) 0 1px, transparent 1px 40px),
+      repeating-linear-gradient(0deg, hsl(215 30% 50% / 0.03) 0 1px, transparent 1px 44px);
     
     --shadow-soft: 0 4px 20px -4px hsl(215 25% 15% / 0.08);
     --shadow-card: 0 8px 30px -8px hsl(215 25% 15% / 0.12);
@@ -59,36 +67,44 @@
   }
 
   .dark {
-    --background: 215 35% 10%;
-    --foreground: 210 20% 95%;
+    /* Dark theme (deep navy + neon highlights) */
+    --background: 220 50% 7%;
+    --foreground: 210 25% 95%;
 
-    --card: 215 30% 14%;
-    --card-foreground: 210 20% 95%;
+    --card: 220 45% 11%;
+    --card-foreground: 210 25% 95%;
 
-    --popover: 215 30% 14%;
-    --popover-foreground: 210 20% 95%;
+    --popover: 220 45% 11%;
+    --popover-foreground: 210 25% 95%;
 
-    --primary: 195 85% 50%;
-    --primary-foreground: 215 35% 10%;
+    --primary: 195 100% 58%;
+    --primary-foreground: 220 50% 7%;
 
-    --secondary: 215 25% 20%;
-    --secondary-foreground: 210 20% 90%;
+    --secondary: 220 35% 16%;
+    --secondary-foreground: 210 25% 92%;
 
-    --muted: 215 25% 18%;
-    --muted-foreground: 215 15% 60%;
+    --muted: 220 35% 14%;
+    --muted-foreground: 215 18% 68%;
 
-    --accent: 170 70% 50%;
-    --accent-foreground: 215 35% 10%;
+    --accent: 285 100% 62%;
+    --accent-foreground: 220 50% 7%;
 
     --destructive: 0 62.8% 50%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 215 25% 22%;
-    --input: 215 25% 22%;
-    --ring: 195 85% 50%;
+    --border: 220 30% 18%;
+    --input: 220 30% 18%;
+    --ring: 195 100% 58%;
 
-    --gradient-hero: linear-gradient(135deg, hsl(215 35% 8%) 0%, hsl(200 40% 12%) 50%, hsl(180 50% 15%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(215 30% 16%) 0%, hsl(215 30% 14%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(225 70% 6%) 0%, hsl(220 60% 10%) 50%, hsl(205 70% 12%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(220 45% 12%) 0%, hsl(220 45% 10%) 100%);
+    --gradient-accent: linear-gradient(90deg, hsl(195 100% 62%) 0%, hsl(285 100% 68%) 100%);
+
+    --texture-soft: radial-gradient(900px 600px at 20% 10%, hsl(195 100% 58% / 0.20), transparent 55%),
+      radial-gradient(800px 500px at 85% 25%, hsl(285 100% 62% / 0.18), transparent 55%),
+      radial-gradient(700px 450px at 55% 90%, hsl(165 100% 55% / 0.12), transparent 60%),
+      repeating-linear-gradient(90deg, hsl(195 100% 58% / 0.06) 0 1px, transparent 1px 44px),
+      repeating-linear-gradient(0deg, hsl(285 100% 62% / 0.05) 0 1px, transparent 1px 52px);
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -123,7 +139,15 @@
   }
 
   .bg-hero {
-    background: var(--gradient-hero);
+    background-image: var(--texture-soft), var(--gradient-hero);
+    background-blend-mode: normal;
+  }
+
+  /* Apply texture only where you opt-in (usually blank section backgrounds). */
+  .bg-texture {
+    background-image: var(--texture-soft);
+    background-attachment: fixed;
+    background-size: auto;
   }
 
   .bg-card-gradient {

@@ -2,7 +2,7 @@ import profilePhoto from "@/assets/profile-photo.png";
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-24 bg-background">
+    <section id="about" className="py-24 bg-background bg-texture">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
           {/* Profile Image */}
@@ -27,7 +27,7 @@ const AboutSection = () => {
               About <span className="text-gradient">Me</span>
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-              Hi! I'm a student with a strong interest in the <span className="text-foreground font-medium">intersection of</span> <span className="text-foreground font-medium">science and technology</span>, particularly how biological systems work at a fundamental level and how this knowledge can be applied in <span className="text-foreground font-medium">real-world contexts</span>. My studies have fuelled a growing curiosity about <span className="text-primary font-medium">biotechnology</span> and the role <span className="text-foreground font-medium">innovation</span> plays in solving complex problems.
+              Hi! I'm a student with a strong interest in the <span className="text-foreground font-medium">intersection of</span> <span className="text-foreground font-medium">science and technology</span>, especially how scientific understanding translates into <span className="text-foreground font-medium">real-world healthcare</span>. My studies have fuelled a growing curiosity about <span className="text-primary font-medium">medicine</span> and the role <span className="text-foreground font-medium">innovation</span> plays in improving patient care and outcomes.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
               I'm motivated by <span className="text-foreground font-medium">continuous learning</span> and enjoy exploring ideas through <span className="text-foreground font-medium">research</span>, <span className="text-foreground font-medium">collaboration</span>, and <span className="text-foreground font-medium">hands-on projects</span>. Whether I'm experimenting, coding, or developing new skills, I'm always keen to take on <span className="text-primary font-medium">challenges</span> that push my understanding further and help me grow.
